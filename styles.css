@@ -1,0 +1,56 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #030106;
+  width: 400px;
+  height: 550px;
+  padding: 10px;
+  margin: 0px;
+  color: white;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+}
+
+.glass {
+  background: rgba(3, 1, 6, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.wrapper-1 {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+
+.wrapper-1 > div {
+  padding: 15px 35px;
+}
+
+.wrapper-2 {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+
+.wrapper-2 > div {
+  width: 32%;
+  height: 100px;
+  text-align: center;
+  padding: 10px 5px;
+}
