@@ -54,3 +54,21 @@ body {
   text-align: center;
   padding: 10px 5px;
 }
+#price{
+  text-align: right;
+
+}
+#low{
+  color: red;
+}
+#avg{
+  color: yellow;
+}
+
+#fast{
+  color: green;
+}
+#time{
+  text-align: left;
+  color: yellow;
+}
