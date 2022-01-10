@@ -1,4 +1,42 @@
-// )
+fetch(
+  "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN "
+)
+  .then((data) => data.json())
+  .then((data) => {
+    fetch(
+      "https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN"
+    )
+      .then((data2) => data2.json())
+      .then((data2) => {
+        //Low gas Cost 
+        const lowgas= data.result.SafeGasPrice;
+        const fee = data2.result.ethusd;
+        const gweiToEth = lowgas/1000000000;
+        const oneGascost = fee * gweiToEth;
+        const LowGascost = 21000 * oneGascost;
+        const LowFee = document.getElementById('LowFee');
+        LowFee.innerHTML= "$" +LowGascost;
+        //Medium Gas cost calculation
+        const mediumgas= data.result.ProposeGasPrice;
+        const medgweiToEth= mediumgas/1000000000;
+        const medoneGascost= fee*medgweiToEth;
+        const medGascost = 21000 * medoneGascost;
+        const Mediumgas= document.getElementById('MediumFee');
+        Mediumgas.innerHTML= "$" +medGascost;
+        
+
+
+        //High gas cost calculation
+        const highgas = data.result.FastGasPrice;
+        const fastgweiToEth= highgas/1000000000;
+        const fastoneGascost = fee*fastgweiToEth;
+        const fastgascost = 21000*fastoneGascost;
+        const Fastgas= document.getElementById('FastFee');
+        Fastgas.innerHTML= "$" +fastgascost;
+
+      });
+  });
+
 function Pricefunc() {
   fetch(
     "https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN"
@@ -11,7 +49,7 @@ function Pricefunc() {
     });
 }
 setInterval(Pricefunc, 1000);
-async function GasInfo() {
+  function GasInfo() {
   fetch(
     "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN "
   )
@@ -93,17 +131,3 @@ let clock = () => {
 setInterval(clock, 1000);
 clock();
 
-fetch(
-  "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN "
-)
-  .then((data) => data.json())
-  .then((data) => {
-    fetch(
-      "https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN"
-    )
-      .then((data2) => data2.json())
-      .then((data2) => {
-        console.log(data.result.SafeGasPrice);
-        console.log(data2.result.ethusd);
-      });
-  });
