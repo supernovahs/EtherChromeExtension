@@ -54,21 +54,55 @@ body {
   text-align: center;
   padding: 10px 5px;
 }
-#price{
+#price {
   text-align: right;
-
 }
-#low{
+#low {
   color: red;
 }
-#avg{
+#avg {
   color: yellow;
 }
 
-#fast{
+#fast {
   color: green;
 }
-#time{
+#time {
   text-align: left;
   color: yellow;
+}
+
+.speedo {
+  width: 200px;
+  height: 90px;
+  margin: 30px auto 10px auto;
+  overflow: hidden;
+}
+
+.face {
+  width: 200px;
+  height: 200px;
+  border: solid 40px #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.needle {
+  width: 5px;
+  height: 80px;
+  background: #333;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  display: inline-block;
+  left: 55px;
+  position: absolute;
+  top: -33px;
+  transform-origin: bottom;
+}
+
+.wrapper-3 > h2 {
+  padding: 5px;
+  text-align: center;
 }
