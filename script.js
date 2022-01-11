@@ -17,6 +17,7 @@ fetch(
         const LowGascost = 21000 * oneGascost;
         const LowFee = document.getElementById('LowFee');
         LowFee.innerHTML= "$" +LowGascost;
+
         //Medium Gas cost calculation
         const mediumgas= data.result.ProposeGasPrice;
         const medgweiToEth= mediumgas/1000000000;
@@ -75,7 +76,7 @@ setInterval(Pricefunc, 1000);
     });
 }
 GasInfo();
-setInterval(GasInfo, 1000);
+setInterval(GasInfo, 2000);
 
 function ConfirmationTime(LowGasPrice,MedGasPrice,FastGasPrice) {
   fetch("https://api.etherscan.io/api?module=gastracker&action=gasestimate&gasprice="+LowGasPrice+"&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN")
@@ -84,6 +85,9 @@ function ConfirmationTime(LowGasPrice,MedGasPrice,FastGasPrice) {
     const Lowtime = timing.result;
     const LowTime = document.getElementById('Lowtime');
     LowTime.innerHTML = Lowtime;
+    
+
+   
   })
   fetch("https://api.etherscan.io/api?module=gastracker&action=gasestimate&gasprice="+MedGasPrice+"&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN")
   .then((data)=>data.json())
@@ -100,9 +104,11 @@ function ConfirmationTime(LowGasPrice,MedGasPrice,FastGasPrice) {
     const FastTime = document.getElementById('FastTime');
     FastTime.innerHTML = fasttime;
   })
+
   
 
 }
+
 
 
 
