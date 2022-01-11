@@ -67,44 +67,45 @@ setInterval(Pricefunc, 1000);
       Proposedgas.innerHTML = proposegas + "Gwei";
       SafeGas.innerHTML = safegas + "Gwei";
       FastGas.innerHTML = fastgas + "Gwei";
+      const safegasinWei= safegas*1000000000;
+      ConfirmationTime(safegasinWei,proposegas,fastgas);
+      
       // BaseFee.innerHTML= basefee;
     });
 }
 GasInfo();
 setInterval(GasInfo, 1000);
 
-// .then(fetch('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN'))
-// .then(data=>data.json())
-// .then(fees=>{
-//     const fee = fees.result.ethusd;
-//     const gweiToEth = safegas/1000000000;
-//     const oneGascost = fee * gweiToEth;
-//     const LowGascost = 21000 * oneGascost;
-//     const LowFees = document.getElementById('LowFee');
-// LowFees.innerHTML= LowGascost;
+function ConfirmationTime(LowGasPrice,MedGasPrice,FastGasPrice) {
+  fetch("https://api.etherscan.io/api?module=gastracker&action=gasestimate&gasprice="+LowGasPrice+"&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN")
+  .then((data)=>data.json())
+  .then((timing)=>{
+    const Lowtime = timing.result;
+    const LowTime = document.getElementById('Lowtime');
+    LowTime.innerHTML = Lowtime;
+  })
+  fetch("https://api.etherscan.io/api?module=gastracker&action=gasestimate&gasprice="+MedGasPrice+"&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN")
+  .then((data)=>data.json())
+  .then((timing)=>{
+    const Medtime = timing.result;
+    const MedTime = document.getElementById('MedTime');
+    MedTime.innerHTML = Medtime;
+  })
 
-// })
+  fetch("https://api.etherscan.io/api?module=gastracker&action=gasestimate&gasprice="+FastGasPrice+"&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN")
+  .then((data)=>data.json())
+  .then((timing)=>{
+    const fasttime = timing.result;
+    const FastTime = document.getElementById('FastTime');
+    FastTime.innerHTML = fasttime;
+  })
+  
 
-// fetch('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN')
-// .then(data=>data.json())
-// .then(feefunc=>{
-//  // Not working safegas variable . Check how to access safegas variable from above fetch to this fetch API .
-// // I tried globalthis.safegas command but did not work
-// const fee = feefunc.result.ethusd;
-// const gweiToEth = safegas/1000000000;
-// const oneGascost = fee * gweiToEth;
-// const LowGascost = 21000 * oneGascost;
-// const LowFee = document.getElementById('LowFee');
-// LowFee.innerHTML= LowGascost;
+}
 
-// })
 
-// const LowFee= document.getElementById('LowFee');
-// LowFee.innerHTML =
-// function cal(x,y) {
-//     y= y/1000000000;
-//     const val = x*y;
-//     const fee = val * 21000;
+
+
 
 // CLock
 
