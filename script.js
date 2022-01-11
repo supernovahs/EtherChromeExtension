@@ -1,3 +1,4 @@
+
 fetch(
   "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN "
 )
@@ -131,4 +132,5 @@ let clock = () => {
 
 setInterval(clock, 1000);
 clock();
+
 
