@@ -6,6 +6,10 @@
     "default_popup": "popup2.html",
     "default_icon": "logo.png"
   },
+  "background": {
+    "scripts": ["background.js"],
+    "persistant": false
+  },
   "icons": {
     "128": "logo.png"
   }
