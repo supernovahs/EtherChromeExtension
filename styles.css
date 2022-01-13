@@ -62,14 +62,14 @@ body {
   text-align: right;
 }
 #low {
-  color: red;
+  color: green;
 }
 #avg {
   color: yellow;
 }
 
 #fast {
-  color: green;
+  color: red;
 }
 #time {
   text-align: left;

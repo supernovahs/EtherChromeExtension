@@ -1,15 +1,17 @@
 const Ethprice = document.getElementById("price");
-const LowFee = document.getElementById("LowFee");
-const Mediumgas = document.getElementById("MediumFee");
-const Fastgas = document.getElementById("FastFee");
+const LowgasDollar = document.getElementById("LowFee");
+const MediumgasDollar = document.getElementById("MediumFee");
+const FastgasDollar = document.getElementById("FastFee");
 const Main = document.getElementById("main");
 const Loader = document.getElementById("loader");
-
+const LowGas= document.getElementById('SafeGas');
+const MedGas= document.getElementById('ProposedGas');
+const FastGas= document.getElementById('FastGas');
 let LowGascost = null;
 let MediumGascost = null;
 let FastGasCost = null;
 let fee = null;
-let price = null;
+// let price = null;
 let loading = true;
 
 const getFee = () => {
@@ -45,34 +47,39 @@ const getGas = () => {
       const fastoneGascost = fee * fastgweiToEth;
       FastGasCost = 21000 * fastoneGascost;
       FastGasCost = FastGasCost.toFixed(2);
+
+      LowGas.innerHTML= lowgas+"Gwei";
+      MedGas.innerHTML= mediumgas+"Gwei";
+      FastGas.innerHTML= highgas+ "Gwei";
     });
 };
 
-function Pricefunc() {
-  fetch(
-    "https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN"
-  )
-    .then((data) => data.json())
-    .then((data) => {
-      price = data.result.ethusd;
-    });
-}
+// function Pricefunc() {
+//   fetch(
+//     "https://api.etherscan.io/api?module=stats&action=ethprice&apikey=NS4S9UP9T8TDMPVI9H9RWH572AKWQPI4UN"
+//   )
+//     .then((data) => data.json())
+//     .then((data) => {
+//       price = data.result.ethusd;
+//     });
+// }
 
 setInterval(() => {
-  Pricefunc();
+  // Pricefunc();
   getFee();
   if (fee !== null) {
     getGas();
   }
   console.log(Main);
   console.log(Loader);
-  if (fee && LowGascost && MediumGascost && FastGasCost && price) {
-    Ethprice.innerHTML = "$" + price;
-    LowFee.innerHTML = "$" + LowGascost;
-    Mediumgas.innerHTML = "$" + MediumGascost;
-    Fastgas.innerHTML = "$" + FastGasCost;
+  if (fee && LowGascost && MediumGascost && FastGasCost ) {
+    Ethprice.innerHTML = "$" + fee;
+    LowgasDollar.innerHTML = "$" + LowGascost;
+    MediumgasDollar.innerHTML = "$" + MediumGascost;
+    FastgasDollar.innerHTML = "$" + FastGasCost;
     Loader.classList.add("loading");
     Loader.classList.remove("loader-container");
     Main.classList.remove("loading");
+    
   }
 }, 1000);
