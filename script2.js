@@ -1,4 +1,4 @@
-const Ethprice = document.getElementById("price");
+const Ethprice = document.getElementById("prices");
 const LowgasDollar = document.getElementById("LowFee");
 const MediumgasDollar = document.getElementById("MediumFee");
 const FastgasDollar = document.getElementById("FastFee");

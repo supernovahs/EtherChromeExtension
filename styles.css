@@ -23,26 +23,26 @@ body {
   border-bottom: 1px solid white;
 }
 
-.glass {
+/* .glass {
   background: rgba(3, 1, 6, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
+} */
+/* 
 .wrapper-1 {
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid white;
-}
-
+} */
+/* 
 .wrapper-1 > div {
   padding: 15px 35px;
-}
+} */
 
 .wrapper-2 {
   padding: 10px;
@@ -76,7 +76,7 @@ body {
   color: yellow;
 }
 
-.speedo {
+/* .speedo {
   width: 200px;
   height: 90px;
   margin: 30px auto 10px auto;
@@ -89,9 +89,9 @@ body {
   border: solid 40px #fff;
   border-radius: 50%;
   position: relative;
-}
+} */
 
-.needle {
+/* .needle {
   width: 5px;
   height: 80px;
   background: #333;
@@ -104,11 +104,17 @@ body {
   position: absolute;
   top: -33px;
   transform-origin: bottom;
-}
+/* } */
 
-.wrapper-3 > h2 {
+.wrapper-3  {
   padding: 5px;
   text-align: center;
+  border-bottom: 1px solid white;
+} 
+#prices{
+  text-align: center;
+  font-size: medium;
+  font-style: italic;
+  color: blueviolet;
 }
-
 
